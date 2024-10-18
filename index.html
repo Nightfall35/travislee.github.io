@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>HAPPY BIRTHDAY</title>
+</head>
+<body>
+    <video id="bgOverlayVideo" autoplay muted loop>
+        <source src="vid\statue-smile.1920x1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <video id="bgMainVideo" autoplay muted loop style="display: none;">
+        <source src="vid\igris-knight.1920x1080.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="overlay">
+        <input type="text" id="keyInput" placeholder="Enter Key" />
+        <button onclick="checkKey()">Submit</button>
+
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <h1 id="header" class="gothic-title">Musical Cipher Challenge</h1>
+
+        <div class="dropdown">
+            <button class="dropbtn">Navigate</button>
+            <div class="dropdown-content">
+                <a href="art-canvas.html">Art Canvas</a>
+                <a href="math-canvas.html">Math-Dream</a>
+                <a href="oppenheimer.html">Oppenheimer's Life Story</a>
+                <a href="gallery.html">Gallery</a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-container">
+        <div class="controls">
+            <audio id="music" controls>
+                <source src="songs/Valhalla Calling - Miracle Of Sound.m4a" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <button onclick="playMusic()">Play Music</button>
+            <div class="icon-container">
+                <i class="fas fa-skull"></i>
+                <i class="fas fa-crow"></i>
+            </div>
+        </div>
+
+        <input type="text" id="encryptInput" placeholder="Enter message">
+        <button onclick="encryptMessage()">Encrypt</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

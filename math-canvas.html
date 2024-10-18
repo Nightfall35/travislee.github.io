@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="math-canvas.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <title>Mathematician's Dream</title>
+</head>
+<body>
+    <h1 class="math-title">Mathematician's Dream</h1>
+    
+    <div class="controls">
+        <input type="text" id="functionInput" placeholder="Enter a function (e.g., sin(x))">
+        <button onclick="plotGraph()">Plot Graph</button>
+        <button onclick="clearGraph()">Clear Graph</button>
+        <button onclick="toggleGeometryTools()">Geometry Tools</button>
+        <button onclick="toggleEquationSolver()">Equation Solver</button>
+        <button onclick="toggleMatrixOperations()">Matrix Operations</button>
+        <button onclick="startGame()">Math Game</button>
+    </div>
+    
+    <canvas id="mathCanvas"></canvas>
+    
+    <!-- Overlays for various functionalities -->
+    <div id="geometryOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleGeometryTools()">&times;</span>
+            <h2>Geometry Tools</h2>
+            <p>Select a tool to explore geometric shapes.</p>
+            <button onclick="drawCircle()">Draw Circle</button>
+            <button onclick="drawTriangle()">Draw Triangle</button>
+            <button onclick="drawPolygon()">Draw Polygon</button>
+            <button onclick="clearGeometry()">Clear Geometry</button>
+            <h3>Area/Perimeter Calculators</h3>
+            <button onclick="calculateCircle()">Circle</button>
+            <button onclick="calculateRectangle()">Rectangle</button>
+            <button onclick="calculateTriangle()">Triangle</button>
+        </div>
+    </div>
+    
+
+    <div id="equationOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleEquationSolver()">&times;</span>
+            <h2>Equation Solver</h2>
+            <p>Enter an equation to find its roots.</p>
+            <input type="text" id="equationInput" placeholder="e.g., x^2 - 4 = 0">
+            <button onclick="solveEquation()">Solve</button>
+            <div id="solutionOutput"></div>
+        </div>
+    </div>
+    
+    
+    <div id="matrixOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleMatrixOperations()">&times;</span>
+            <h2>Matrix Operations</h2>
+            <p>Perform operations on matrices A and B.</p>
+            <input type="text" id="matrixInputA" placeholder="Matrix A (e.g., 1,2;3,4)">
+            <input type="text" id="matrixInputB" placeholder="Matrix B (e.g., 5,6;7,8)">
+            <button onclick="addMatrices()">Add Matrices</button>
+            <button onclick="multiplyMatrices()">Multiply Matrices</button>
+            <div id="matrixOutput"></div>
+        </div>
+    </div>
+    
+
+    <div id="gameOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleGame()">&times;</span>
+            <h2>Math Game</h2>
+            <p>Answer the math question to score points!</p>
+            <p id="mathQuestion"></p>
+            <input type="text" id="answerInput" placeholder="Your answer">
+            <button onclick="checkAnswer()">Submit</button>
+            <div id="gameFeedback"></div>
+        </div>
+    </div>
+    
+
+    <div id="numericalAnalysisOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleNumericalAnalysis()">&times;</span>
+            <h2>Numerical Analysis Tools</h2>
+            <p>Choose a tool for numerical methods.</p>
+            
+            <h3>Root-Finding</h3>
+            <input type="text" id="rootFunctionInput" placeholder="f(x)">
+            <input type="number" id="initialGuess" placeholder="Initial Guess">
+            <button onclick="findRoot()">Find Root</button>
+            <p id="rootOutput"></p>
+    
+            <h3>Numerical Integration</h3>
+            <input type="text" id="integralFunctionInput" placeholder="f(x)">
+            <input type="number" id="lowerLimit" placeholder="Lower Limit">
+            <input type="number" id="upperLimit" placeholder="Upper Limit">
+            <button onclick="calculateIntegral()">Calculate Integral</button>
+            <p id="integralOutput"></p>
+    
+            <h3>Linear Equation Solver</h3>
+            <textarea id="linearEquations" placeholder="Enter equations, one per line"></textarea>
+            <button onclick="solveLinearEquations()">Solve Equations</button>
+            <p id="linearOutput"></p>
+        </div>
+    </div>
+    
+    </div>
+
+    <script src="math-canvas.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Gothic Gallery</title>
+</head>
+<body>
+    <div class="background-video">
+        <video autoplay loop muted>
+            <source src="path/to/your/background-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <h1 class="gallery-title">Gothic Gallery</h1>
+
+        <div class="upload-section">
+            <input type="file" id="fileInput" accept="image/*">
+            <button onclick="uploadImage()">Upload Artwork</button>
+        </div>
+
+        <div class="gallery-container" id="galleryContainer">
+            <!-- User-uploaded images will appear here -->
+        </div>
+
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">Back to Home</button>
+        </div>
+    </div>
+
+    <script src="gallery.js"></script>
+</body>
+</html>

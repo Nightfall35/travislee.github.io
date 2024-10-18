@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="opp.css">
+    <title>Oppenheimer's Life Story</title>
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Slideshow Images -->
+        <div class="mySlides fade">
+            <img src="images/1323605.jpeg" alt="Oppenheimer Image 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/dgyisqu-2f1e27d7-7d9f-47a3-a071-943f75feddc6.jpg" alt="Oppenheimer Image 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/HEROSCREEN-321-min.webp" alt="Oppenheimer Image 3">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/Oppenheimer-heroscreen-wall7162023.jpg" alt="Oppenheimer Image 4">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/oppenheimer-j-robert-oppenheimer-desert-hd-wallpaper-preview.jpg" alt="Oppenheimer Image 5">
+        </div>
+    </div>
+
+    <div class="content">
+        <h1 id="header">J. Robert Oppenheimer</h1>
+        <p>J. Robert Oppenheimer was an American theoretical physicist and the scientific director of the Manhattan Project...</p>
+        
+        <!-- Audio Player -->
+        <audio id="audioPlayer" controls>
+            <source src="" id="audioSource" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
+        <div class="button-container">
+            <button class="music-button" onclick="shuffleAndPlay()">Shuffle and Play</button>
+            <button class="music-button" onclick="stopAudio()">Stop Music</button>
+            <button onclick="window.location.href='index.html'">Back to Home</button>
+            <button onclick="startCredits()">Life</button>
+        </div>
+    </div>
+
+    <div id="credits" class="credits-overlay" style="display:none;">
+        <div class="credits-content">
+            <h2>Interesting Facts About J. Robert Oppenheimer and the Atomic Bomb:</h2>
+            <ul>
+                <li><strong>The "Father of the Atomic Bomb":</strong> Oppenheimer is often called the "father of the atomic bomb" for his role as the scientific director of the Manhattan Project...</li>
+                <li><strong>Interdisciplinary Team:</strong> The Manhattan Project was a massive collaboration involving physicists, chemists, engineers, and military personnel...</li>
+                <li><strong>The Trinity Test:</strong> On July 16, 1945, the first successful detonation of a nuclear weapon...</li>
+                <li><strong>Ethical Concerns:</strong> After witnessing the devastation caused by the bombings of Hiroshima and Nagasaki...</li>
+                <li><strong>Security Clearance Issues:</strong> Oppenheimer's past associations with leftist groups...</li>
+                <li><strong>Legacy of Nuclear Proliferation:</strong> Oppenheimer's work not only ushered in the atomic age...</li>
+                <li><strong>Cultural Impact:</strong> Oppenheimer's life and the development of the atomic bomb have been the subjects of numerous books...</li>
+                <li><strong>Personal Life:</strong> Oppenheimer was known for his eclectic interests...</li>
+                <li><strong>Nobel Prize:</strong> Although Oppenheimer is renowned for his contributions to physics...</li>
+                <li><strong>Theoretical Physics:</strong> Before his work on the atomic bomb, Oppenheimer made significant contributions...</li>
+            </ul>
+            <h3>Notable Quotes:</h3>
+            <ol>
+                <li>"Now I am become Death, the destroyer of worlds."</li>
+                <li>"In some sort of crude sense which no vulgarity, no humor, no overstatement can quite extinguish, the physicists have known sin."</li>
+                <li>"The world is not only more complicated than we think; it is more complicated than we can think."</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Video Element -->
+    <video id="backgroundVideo" class="video-background" style="display:none;" autoplay muted>
+        <source src="vid/oppenheimer-quote.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        let slideIndex = 0;
+        let creditsActive = false;
+        let videoPlaying = false;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("mySlides");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none"; // Hide all slides
+            }
+            slideIndex = (slideIndex + 1) % slides.length; // Cycle through slides
+            slides[slideIndex].style.display = "block"; // Show the current slide
+            if (!creditsActive && !videoPlaying) {
+                setTimeout(showSlides, 8000); // Change image every 8 seconds
+            }
+        }
+
+        const songs = [
+            "songs/Demons - Imagine Dragons (2).m4a",
+            "songs/All I Want - Kodaline (2).m4a",
+            "songs/Breathe Me - Sia.m4a",
+            "songs/Bad Liar - Imagine Dragons.m4a",
+            "songs/Hallelujah - Jeff Buckley.m4a",
+            "songs/Fix You - Coldplay.m4a",
+            "songs/The Night We Met - Lord Huron.m4a",
+            "songs/Natural - Imagine Dragons.m4a",
+            "songs/Don t Cry - Lucky Dube.m4a",
+            "songs/Remember Me - Lucky Dube.m4a",
+            "songs/I Loved Her First - Heartland.m4a",
+            "songs/Destroyer Of Worlds - Ludwig Göransson.m4a"            
+        ];
+
+        function shuffleAndPlay() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            const audioSource = document.getElementById('audioSource');
+            const randomIndex = Math.floor(Math.random() * songs.length);
+            audioSource.src = songs[randomIndex];
+            audioPlayer.load(); // Load the new audio source
+            audioPlayer.play(); // Play the audio
+        }
+
+        function stopAudio() {
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0; // Reset to start
+        }
+
+        function startCredits() {
+    document.body.style.backgroundColor = "black"; // Set background to black
+    document.querySelector(".slideshow-container").style.display = "none"; // Hide slideshow
+    document.querySelector(".content").style.display = "none"; // Hide content
+    document.getElementById("credits").style.display = "block"; // Show credits
+    creditsActive = true;
+
+    // Stop the slideshow
+    clearTimeout(slideShowTimeout);
+
+    // Stop credits after they are done
+    setTimeout(() => {
+        document.getElementById("credits").style.display = "none"; // Hide credits
+        document.body.style.backgroundColor = ""; // Reset background
+        videoPlaying = true;
+        playBackgroundVideo(); // Start video after credits
+    }, 9000); // Adjust this duration to match the length of the credits scroll
+}
+
+function playBackgroundVideo() {
+    const video = document.getElementById("backgroundVideo");
+    video.style.display = "block"; // Show video
+    video.play(); // Play the video
+
+    // Stop video and return to regular page when finished
+    video.onended = function() {
+        video.style.display = "none"; // Hide video
+        videoPlaying = false; // Reset flag
+        document.querySelector(".slideshow-container").style.display = "flex"; // Show slideshow
+        document.querySelector(".content").style.display = "block"; // Show content
+        const audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.play(); // Resume music
+        showSlides(); // Restart slideshow
+    };
+}
+window.onload = function() {
+    autoplayMusic();
+};
+
+function autoplayMusic() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioSource = document.getElementById('audioSource');
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    audioSource.src = songs[randomIndex];
+    audioPlayer.load(); // Load the new audio source
+    audioPlayer.play().catch(error => {
+        console.error("Autoplay failed:", error);
+        // Handle any errors that occur during autoplay (like muted autoplay restrictions)
+    });
+}
+
+    </script>
+</body>
+</html>

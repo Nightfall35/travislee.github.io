@@ -1,0 +1,214 @@
+/* opp.css */
+
+body {
+    background-color: #1a1a1a;
+    background-image: url('images\HEROSCREEN-321-min.webp'); /* Replace with your texture path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #eaeaea;
+    font-family: 'Garamond', serif; /* Gothic-style font */
+    text-align: center;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+}
+
+section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+/* Button Styles */
+button {
+    background-color: #800000; /* Dark red */
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 10px; /* Space between buttons */
+}
+
+button:hover {
+    background-color: #ff0000; /* Bright red on hover */
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.dropbtn {
+    background-color: #800000; /* Dark red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropbtn:hover {
+    background-color: #ff0000; /* Bright red on hover */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #555;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+}
+
+.mySlides {
+    display: none; /* Hide all slides by default */
+}
+
+img {
+    width: 100%;
+    height: auto; /* Ensure images are responsive */
+}
+
+/* Fade Animation */
+.fade {
+    animation: fade 5s; /* Change duration to 5 seconds */
+}
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+
+@keyframes fade {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-container i {
+    color: #eaeaea;
+    font-size: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s;
+}
+
+.icon-container i:hover {
+    transform: scale(1.2);
+}
+.button-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the buttons */
+    margin-top: 20px;
+}
+
+.button-container button {
+    background-color: #800000; /* Dark red */
+    border: none;
+    padding: 12px 24px; /* Default padding for larger buttons */
+    color: white;
+    border-radius: 25px; /* Rounded button */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Include transform in transition */
+    margin: 0 10px; /* Space between buttons */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+}
+
+.music-button {
+    padding: 8px 16px; /* Smaller padding for music buttons */
+    font-size: 14px; /* Smaller font size */
+}
+
+.button-container button:hover {
+    background-color: #ff0000; /* Bright red on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Optional: Add a focus style for accessibility */
+.button-container button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px #ff0000; /* Red glow on focus */
+}
+.credits-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000; /* Ensure it’s above other content */
+}
+
+.credits-content {
+    animation: rollUp 10s linear forwards; /* Adjust duration as needed */
+}
+
+@keyframes rollUp {
+    0% {
+        transform: translateY(100%); /* Start below the screen */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1; /* End at the top */
+    }
+}
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire background */
+    z-index: 999; /* Ensure it’s above other content */
+    display: none; /* Initially hidden */
+}
