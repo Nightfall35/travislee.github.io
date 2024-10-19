@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="art-canvas.css">
+    <title>Art Canvas</title>
+</head>
+<body>
+    <h1 class="gothic-title">Art Canvas</h1>
+    <div class="dropdown">
+        <button class="dropbtn" onclick="toggleGalleryOverlay()">Gallery</button>
+    </div>
+    
+    <canvas id="artCanvas"></canvas>
+    
+    <div class="controls">
+        <input type="color" id="colorPicker" value="#000000">
+        <input type="range" id="brushSize" min="1" max="100" value="5">
+        <button onclick="clearCanvas()">Clear Canvas</button>
+        <button onclick="saveCanvas()">Save Canvas</button>
+        <button onclick="createFolder()">Create Gallery Folder</button>
+        <input type="file" id="fileInput" accept="image/*" onchange="addArtwork(event)">
+        <button onclick="playMusic()">Play Music</button>
+        <button onclick="toggleShapeTools()">Shapes</button>
+        <button onclick="toggleEraser()">Eraser</button>
+    </div>
+    
+    <audio id="music" controls style="display:none;"></audio>
+    
+    <div id="galleryOverlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="toggleGalleryOverlay()">&times;</span>
+            <h2>Gallery</h2>
+            <div id="galleryContainer"></div>
+        </div>
+    </div>
+
+    <script src="art-canvas.js"></script>
+</body>
+</html>
